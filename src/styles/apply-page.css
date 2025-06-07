@@ -1,0 +1,170 @@
+/* src/styles/apply-page.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Затемнення фону */
+.apply-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Затемнення */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1050;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Модальне вікно */
+.apply-modal {
+    background: #ffffff;
+    border-radius: 6px; /* Змінили з 12px на 6px */
+    padding: 24px;
+    width: 100%;
+    max-width: 500px; /* Збільшили з 400px до 600px */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    position: relative;
+}
+
+/* Кнопка "Повернутися" */
+.apply-modal-close {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    font-size: 1.5rem;
+    color: #ff4d4d;
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s;
+}
+
+.apply-modal-close:hover {
+    color: #e64545;
+}
+
+/* Заголовок */
+.apply-modal-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+/* Підзаголовок */
+.apply-modal-subtitle {
+    font-size: 0.9rem;
+    color: #6b7280;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Помилка */
+.apply-modal-error {
+    font-size: 0.85rem;
+    padding: 8px;
+    border-radius: 6px; /* Змінили з 12px на 6px */
+    margin-bottom: 16px;
+}
+
+/* Група форми */
+.apply-modal-group {
+    margin-bottom: 16px;
+}
+
+/* Чекбокс */
+.apply-modal-check {
+    font-size: 0.9rem;
+    color: #374151;
+    margin-bottom: 8px;
+}
+
+/* Поле введення файлу */
+.apply-modal-input {
+    border-radius: 6px; /* Змінили з 8px на 6px */
+    border: 1px solid #d1d5db;
+    padding: 8px;
+    font-size: 0.9rem;
+    width: 100%;
+}
+
+/* Випадаючий список */
+.apply-modal-select {
+    border-radius: 6px; /* Змінили з 8px на 6px */
+    border: 1px solid #d1d5db;
+    padding: 8px;
+    font-size: 0.9rem;
+    width: 100%;
+}
+
+/* Текст підказки */
+.apply-modal-text {
+    font-size: 0.8rem;
+    color: #6b7280;
+    margin-top: 4px;
+    display: block;
+}
+
+/* Кнопка "Продовжити" */
+.apply-modal-button {
+    width: 100%;
+    background: linear-gradient(90deg, #ff4d4d 0%, #ff6200 100%);
+    border: none;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 6px; /* Змінили з 8px на 6px */
+    font-size: 0.95rem;
+    transition: background 0.3s;
+}
+
+.apply-modal-button:hover {
+    background: linear-gradient(90deg, #e64545 0%, #ff6200 100%);
+}
+
+.apply-modal-button:active {
+    background: linear-gradient(90deg, #cc3d3d 0%, #ff6200 100%);
+}
+
+/* Адаптивність */
+@media (max-width: 768px) {
+    .apply-modal {
+        width: 90%;
+        padding: 16px;
+        max-width: 500px; /* Збільшили з 350px до 500px для адаптивності */
+    }
+
+    .apply-modal-title {
+        font-size: 1.3rem;
+    }
+
+    .apply-modal-subtitle {
+        font-size: 0.85rem;
+    }
+
+    .apply-modal-check {
+        font-size: 0.85rem;
+    }
+
+    .apply-modal-input,
+    .apply-modal-select {
+        font-size: 0.85rem;
+        padding: 6px;
+    }
+
+    .apply-modal-text {
+        font-size: 0.75rem;
+    }
+
+    .apply-modal-button {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    .apply-modal-close {
+        font-size: 1.3rem;
+        top: 12px;
+        left: 12px;
+    }
+}

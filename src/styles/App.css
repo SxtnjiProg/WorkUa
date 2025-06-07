@@ -1,0 +1,1096 @@
+/* src/styles/App.css */
+
+/* Імпорт шрифту Inter для сучасного вигляду */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Скидання базових стилів для всіх елементів */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Обгортка сторінки для коректного розміщення футера */
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Основний контейнер сторінки */
+.work-container {
+    padding: 0;
+    max-width: 100%;
+    margin: 0;
+    transition: filter 0.2s ease;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    flex: 1; /* Займає весь доступний простір */
+}
+
+/* Ефект розмиття контейнера при активному модальному вікні */
+.work-container.blurred {
+    filter: blur(5px);
+}
+
+/* Стилі для головного хедера */
+.header-main {
+    background-color: #ff4d4d;
+    color: white;
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+/* Прихований хедер */
+.header-main.hidden {
+    transform: translateY(-100%);
+}
+
+/* Логотип у лівій частині хедера */
+.header-left .logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+/* Центральна частина хедера */
+.header-center {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 16px;
+}
+
+/* Пошукова форма */
+.header-center .search-form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+/* Поле введення пошуку */
+.header-center .search-input {
+    border: none;
+    padding: 10px 16px;
+    flex: 1;
+    height: 44px;
+    font-size: 1rem;
+    border-radius: 24px 0 0 24px;
+}
+
+/* Кнопка пошуку */
+.header-center .search-button {
+    padding: 10px 24px;
+    height: 44px;
+    background-color: #e63939;
+    border: none;
+    border-radius: 0 24px 24px 0;
+    color: white;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+/* Ховер для кнопки пошуку */
+.header-center .search-button:hover {
+    background-color: #cc3333;
+}
+
+/* Права частина хедера */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* Кнопки в правій частині хедера */
+.header-right .btn {
+    border: 1px solid white;
+    color: white;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Ховер для кнопок хедера */
+.header-right .btn:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+/* Перемикач мови */
+.language-switch {
+    display: flex;
+    gap: 8px;
+    font-size: 0.9rem;
+    align-items: center;
+}
+
+/* Посилання в перемикачі мови */
+.language-switch a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Ховер для посилань перемикача мови */
+.language-switch a:hover {
+    text-decoration: underline;
+}
+
+/* Контейнер для кнопок фільтрів */
+.filter-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    margin: 16px 0;
+    padding: 0 16px;
+    background-color: #ffffff;
+    border-radius: 12px;
+}
+
+/* Кнопки фільтрів */
+.filter-buttons .btn {
+    flex: 1;
+    margin: 8px;
+    padding: 12px 16px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #374151;
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    transition: background-color 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+/* Ховер для кнопок фільтрів */
+.filter-buttons .btn:hover {
+    background-color: #f1f5f9;
+    color: #ff4d4d;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Активна кнопка фільтра */
+.filter-buttons .btn.active {
+    background-color: #ff4d4d;
+    color: #ffffff;
+    border-color: #ff4d4d;
+    transform: none;
+    box-shadow: 0 4px 8px rgba(255, 77, 77, 0.3);
+}
+
+/* Список вакансій */
+.vacancy-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 0 16px;
+    margin-bottom: 60px
+}
+
+/* Окрема картка вакансії */
+.vacancy-tile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background-color: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Ховер для картки вакансії */
+.vacancy-tile:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Ліва частина картки вакансії */
+.tile-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-decoration: none;
+    color: inherit;
+    flex: 1;
+}
+
+/* Логотип компанії у вакансії */
+.vacancy-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+/* Заголовок вакансії */
+.tile-left h5 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+/* Додаткова інформація у вакансії */
+.tile-left div {
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+/* Зарплата вакансії */
+.salary {
+    font-weight: 600;
+    color: #2ecc71;
+    font-size: 1.1rem;
+}
+
+/* Конвертована зарплата */
+.converted-salary {
+    font-size: 0.8rem;
+    color: #6b7280;
+    margin-left: 8px;
+}
+
+/* Мета-інформація вакансії */
+.vacancy-meta {
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: #9ca3af;
+    display: flex;
+    gap: 16px;
+}
+
+/* Права частина картки вакансії */
+.tile-right {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* Кнопки в правій частині картки */
+.tile-right .btn {
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    transition: transform 0.2s;
+}
+
+/* Ховер для кнопок у картці */
+.tile-right .btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Кнопка "Відгукнутися" */
+.tile-right .btn-apply {
+    background-color: #ff4d4d !important;
+    border: none !important;
+    color: white !important;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Ховер для кнопки "Відгукнутися" */
+.tile-right .btn-apply:hover {
+    background-color: #e63939 !important;
+    transform: translateY(-2px);
+}
+
+/* Вимкнена кнопка "Відгукнутися" */
+.tile-right .btn-apply:disabled {
+    background-color: #cccccc !important;
+    cursor: not-allowed;
+}
+
+/* Іконка "Дізлайк" */
+.tile-right .dislike-icon {
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+
+    border: none;
+    border-radius: 6px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Ховер для іконки "Дізлайк" */
+.tile-right .dislike-icon:hover {
+
+    transform: translateY(-2px);
+}
+
+/* Детальна сторінка вакансії */
+.vacancy-detail-card {
+    background-color: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 24px;
+    margin: 24px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Хедер детальної сторінки */
+.vacancy-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Великий логотип компанії */
+.vacancy-logo-large {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+/* Заголовок детальної сторінки */
+.vacancy-header h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+/* Підзаголовок */
+.vacancy-header h5 {
+    font-size: 1.1rem;
+    color: #6b7280;
+}
+
+/* Зарплата на детальній сторінці */
+.vacancy-header .salary {
+    font-size: 1.25rem;
+}
+
+/* Опис вакансії */
+.vacancy-description {
+    margin: 24px 0;
+    line-height: 1.7;
+    color: #374151;
+    font-size: 1rem;
+}
+
+/* Заголовок для гарячих вакансій */
+.hot-vacancies-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 16px;
+}
+
+/* Картка гарячої вакансії */
+.hot-vacancy-tile {
+    display: block;
+    padding: 16px;
+    background-color: #f9fafb;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: background-color 0.3s;
+}
+
+/* Ховер для гарячої вакансії */
+.hot-vacancy-tile:hover {
+    background-color: #f1f5f9;
+}
+
+/* Заголовок гарячої вакансії */
+.hot-vacancy-content h5 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 8px;
+}
+
+/* Мета-інформація гарячої вакансії */
+.hot-vacancy-meta {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin-bottom: 4px;
+}
+
+/* Контейнер модального вікна */
+.modal-content {
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Хедер модального вікна */
+.modal-header {
+    border-bottom: none;
+    padding: 20px 24px;
+}
+
+/* Тіло модального вікна */
+.modal-body {
+    padding: 20px 24px;
+    text-align: center;
+    font-size: 1rem;
+    color: #374151;
+}
+
+/* Футер модального вікна */
+.modal-footer {
+    border-top: none;
+    justify-content: center;
+    padding: 16px 24px;
+}
+
+/* Кнопки у футері модального вікна */
+.modal-footer .btn {
+    margin: 0 8px;
+    min-width: 100px;
+    border-radius: 20px;
+    padding: 8px 16px;
+}
+
+/* Кнопка профілю */
+.profile-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+/* Іконка профілю */
+.profile-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+    transition: transform 0.2s;
+}
+
+/* Ховер для іконки профілю */
+.profile-button:hover .profile-icon {
+    transform: scale(1.1);
+}
+
+/* Контейнер сторінки профілю */
+.profile-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Бічна панель профілю */
+.sidebar {
+    width: 250px;
+    background-color: #f9fafb;
+    padding: 24px;
+    border-right: 1px solid #e5e7eb;
+}
+
+/* Посилання в бічній панелі */
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    font-size: 1rem;
+    color: #374151;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Ховер для посилань бічної панелі */
+.sidebar-link:hover {
+    background-color: #f1f5f9;
+    color: #ff4d4d;
+}
+
+/* Активне посилання бічної панелі */
+.sidebar-link.active {
+    background-color: #ff4d4d;
+    color: white;
+}
+
+/* Основний контент сторінки */
+.content {
+    padding: 32px;
+    flex-grow: 1;
+}
+
+/* Картка профілю */
+.profile-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    padding: 24px;
+}
+
+/* Хедер профілю */
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+/* Аватар профілю */
+.profile-avatar {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 50%;
+    border: 3px solid #ff4d4d;
+}
+
+/* Заголовок профілю */
+.profile-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+/* Деталі профілю */
+.profile-details {
+    margin-bottom: 24px;
+    line-height: 1.7;
+    color: #374151;
+}
+
+/* Параграфи в деталях профілю */
+.profile-details p {
+    margin: 8px 0;
+}
+
+/* Елемент резюме */
+.resume-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    background-color: #fff;
+    transition: transform 0.3s;
+}
+
+/* Ховер для елемента резюме */
+.resume-item:hover {
+    transform: translateY(-2px);
+}
+
+/* Посилання резюме */
+.resume-link {
+    cursor: pointer;
+    color: #1f2937;
+    font-weight: 500;
+}
+
+/* Три крапки (меню) */
+.dots {
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+/* Контейнер для резюме */
+.resume-container, .max-w-4xl {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 32px 16px;
+}
+
+/* Група форми */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Поля форми */
+.form-control {
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    padding: 10px 16px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+/* Фокус для полів форми */
+.form-control:focus {
+    border-color: #ff4d4d;
+    box-shadow: 0 0 0 3px rgba(255, 77, 77, 0.1);
+}
+
+/* Мітка форми */
+.form-label {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 8px;
+}
+
+/* Чекбокс форми */
+.form-check {
+    margin-bottom: 12px;
+}
+
+/* Випадаючий список форми */
+.form-select {
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 1rem;
+}
+
+/* Підказка форми */
+.form-text {
+    font-size: 0.85rem;
+    color: #6b7280;
+}
+
+/* Картка адмін-панелі */
+.admin-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Картка вакансії в адмін-панелі */
+.vacancy-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    padding: 16px;
+    margin-bottom: 10px;
+    transition: transform 0.3s;
+}
+
+/* Ховер для картки вакансії в адмін-панелі */
+.vacancy-card:hover {
+    transform: translateY(-2px);
+}
+
+/* Елемент кандидата в адмін-панелі */
+.applicant-item {
+    background-color: #f9fafb;
+    border-radius: 8px;
+    padding: 8px;
+    margin-bottom: 8px;
+}
+
+/* Текст кандидата */
+.applicant-item span {
+    cursor: pointer;
+    color: #1f2937;
+}
+
+/* Ховер для тексту кандидата */
+.applicant-item span:hover {
+    color: #ff4d4d;
+}
+
+/* Стилі для футера */
+.footer {
+    background-color: #1f2937; /* Темно-сірий фон */
+    color: #ffffff;
+    padding: 40px 24px 20px;
+    margin-top: auto; /* Футер притискається донизу */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-section h5 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #ff4d4d; /* Червоний акцент */
+}
+
+.footer-section p {
+    font-size: 0.9rem;
+    color: #d1d5db;
+    margin: 4px 0;
+}
+
+.footer-logo .logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 8px;
+}
+
+.footer-links ul li a {
+    color: #d1d5db;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.footer-links ul li a:hover {
+    color: #ff4d4d;
+}
+
+.footer-contact p {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-social .social-icons {
+    display: flex;
+    gap: 12px;
+}
+
+.footer-social .social-icons a {
+    display: inline-block;
+    transition: transform 0.3s;
+}
+
+.footer-social .social-icons a:hover {
+    transform: translateY(-2px);
+}
+
+.footer-bottom {
+    border-top: 1px solid #374151;
+    padding-top: 16px;
+    text-align: center;
+    margin-top: 24px;
+    font-size: 0.85rem;
+    color: #9ca3af;
+}
+
+/* Адаптація для мобільних (екрани до 768px) */
+@media (max-width: 768px) {
+    .header-main {
+        padding: 8px 12px;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .header-left .logo {
+        font-size: 1.4rem;
+    }
+
+    .header-center {
+        padding: 0 8px;
+        width: 100%;
+    }
+
+    .header-center .search-form {
+        max-width: 100%;
+    }
+
+    .header-center .search-input {
+        height: 36px;
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+
+    .header-center .search-button {
+        height: 36px;
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+
+    .header-right {
+        flex-direction: column;
+        gap: 8px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .header-right .btn {
+        font-size: 0.85rem;
+        padding: 6px 12px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .language-switch {
+        font-size: 0.85rem;
+        justify-content: center;
+    }
+
+    .filter-buttons {
+        flex-direction: column;
+        padding: 8px;
+    }
+
+    .filter-buttons .btn {
+        width: 100%;
+        margin: 4px 0;
+        padding: 10px;
+        font-size: 0.95rem;
+    }
+
+    .vacancy-list {
+        padding: 0 8px;
+        gap: 12px;
+    }
+
+    .vacancy-tile {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px;
+        gap: 12px;
+    }
+
+    .vacancy-logo {
+        width: 48px;
+        height: 48px;
+    }
+
+    .tile-left h5 {
+        font-size: 1.1rem;
+    }
+
+    .tile-left div {
+        font-size: 0.85rem;
+    }
+
+    .salary {
+        font-size: 1rem;
+    }
+
+    .converted-salary {
+        font-size: 0.75rem;
+    }
+
+    .vacancy-meta {
+        font-size: 0.8rem;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .tile-right {
+        flex-direction: column;
+        width: 100%;
+        gap: 8px;
+    }
+
+    .tile-right .btn, .tile-right .btn-apply, .tile-right .dislike-icon {
+        width: 100%;
+        font-size: 0.85rem;
+        padding: 6px;
+        height: auto;
+    }
+
+    .tile-right .dislike-icon {
+        width: 100%;
+        height: 36px;
+        padding: 6px;
+        object-fit: contain;
+    }
+
+    .vacancy-detail-card {
+        padding: 16px;
+        margin: 16px 8px;
+    }
+
+    .vacancy-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .vacancy-header h5 {
+        font-size: 1rem;
+    }
+
+    .vacancy-header .salary {
+        font-size: 1.1rem;
+    }
+
+    .vacancy-description {
+        font-size: 0.95rem;
+        margin: 16px 0;
+    }
+
+    .modal-content {
+        margin: 8px;
+    }
+
+    .modal-header, .modal-body, .modal-footer {
+        padding: 16px;
+    }
+
+    .modal-body {
+        font-size: 0.95rem;
+    }
+
+    .modal-footer .btn {
+        min-width: 80px;
+        font-size: 0.85rem;
+        padding: 6px 12px;
+    }
+
+    .profile-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 16px;
+        border-right: none;
+        border-bottom: 1px solid #e5e7eb;
+        display: none;
+    }
+
+    .sidebar.active {
+        display: block;
+    }
+
+    .sidebar-link {
+        font-size: 0.95rem;
+        padding: 10px 12px;
+    }
+
+    .content {
+        padding: 16px;
+    }
+
+    .profile-card {
+        padding: 16px;
+    }
+
+    .profile-avatar {
+        width: 60px;
+        height: 60px;
+    }
+
+    .profile-title {
+        font-size: 1.3rem;
+    }
+
+    .profile-details {
+        font-size: 0.95rem;
+    }
+
+    .resume-item {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
+
+    .form-control, .form-select {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+
+    .form-label {
+        font-size: 0.9rem;
+    }
+
+    .form-text {
+        font-size: 0.8rem;
+    }
+
+    .admin-card, .vacancy-card {
+        padding: 12px;
+        margin-bottom: 12px;
+    }
+
+    .applicant-item {
+        padding: 6px;
+        font-size: 0.85rem;
+    }
+
+    /* Адаптація футера для мобільних */
+    .footer {
+        padding: 24px 16px 16px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .footer-section {
+        min-width: 100%;
+    }
+
+    .footer-logo .logo {
+        font-size: 1.4rem;
+    }
+
+    .footer-section h5 {
+        font-size: 1rem;
+    }
+
+    .footer-section p, .footer-links ul li a {
+        font-size: 0.85rem;
+    }
+
+    .footer-social .social-icons svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .footer-bottom {
+        font-size: 0.8rem;
+        padding-top: 12px;
+        margin-top: 16px;
+    }
+}
+/* Кастомізація синіх кнопок Bootstrap (variant="primary") */
+.btn-primary {
+    background-color: #ff4d4d !important; /* Основний червоний колір */
+    border-color: #ff4d4d !important; /* Колір бордера */
+    color: #ffffff !important; /* Білий текст */
+    border-radius: 6px; /* Округлення кутів */
+    font-weight: 600;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #e64545 !important; /* Темніший відтінок при наведенні */
+    border-color: #e64545 !important;
+}
+
+.btn-primary:active {
+    background-color: #cc3d3d !important; /* Ще темніший при натисканні */
+    border-color: #cc3d3d !important;
+}
+
+.btn-primary:disabled {
+    background-color: #ff8080 !important; /* Світліший відтінок для неактивної кнопки */
+    border-color: #ff8080 !important;
+    opacity: 0.7;
+}

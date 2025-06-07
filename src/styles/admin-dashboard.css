@@ -1,0 +1,293 @@
+/* src/styles/admin-dashboard.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Скидання базових стилів */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Основний контейнер */
+.admin-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 15px 10px;
+    background-color: transparent;
+    min-height: auto;
+}
+
+/* Заголовок */
+.admin-container h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Секція додавання вакансії */
+.add-vacancy-section {
+    background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    padding: 12px;
+    margin-bottom: 12px;
+}
+
+.add-vacancy-section h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 10px;
+}
+
+/* Карта вакансій */
+.admin-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+    padding: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.admin-card:hover {
+    background-color: #fafafa;
+}
+
+.admin-card .card-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 15px;
+}
+
+/* Список вакансій */
+.vacancy-list {
+    border: none;
+}
+
+.vacancy-item {
+    background-color: #f9fafb;
+    border-radius: 6px;
+    padding: 8px;
+    margin-bottom: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, max-height 0.3s ease;
+    overflow: hidden;
+}
+
+.vacancy-item:hover {
+    background-color: #f1f5f9;
+}
+
+
+
+.vacancy-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.vacancy-company {
+    font-size: 0.85rem;
+    color: #6b7280;
+}
+
+.vacancy-details {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #e5e7eb;
+    animation: slideDown 0.3s ease;
+}
+
+.vacancy-item.expanded {
+    background-color: #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+/* Список відгуків */
+.applicant-item {
+    background-color: #f9fafb;
+    border-radius: 6px;
+    padding: 8px;
+    margin-bottom: 4px;
+    font-size: 0.8rem;
+    color: #374151;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.applicant-item:hover {
+    background-color: #f1f5f9;
+}
+
+.applicant-name-wrapper {
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.applicant-name {
+    cursor: pointer;
+    color: #1f2937;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.applicant-name:hover {
+    color: #ff4d4d;
+}
+
+/* Контейнер для кнопок */
+.action-buttons {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+    margin-left: auto;
+    padding-left: 10px; /* Ensures some spacing from the name */
+}
+
+/* Стилі для кнопок хрестик і галочка */
+.action-button {
+    font-size: 1rem;
+    font-weight: 700;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.reject-button {
+    color: #ff4d4d;
+}
+
+.reject-button:hover {
+    background-color: rgba(255, 77, 77, 0.1);
+}
+
+.accept-button {
+    color: #10b981;
+}
+
+.accept-button:hover {
+    background-color: rgba(16, 185, 129, 0.1);
+}
+
+/* Стилі для кастомних зображень */
+.action-icon {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+}
+
+/* Кнопка видалення вакансії */
+.delete-button {
+    width: 100%;
+    margin-top: 6px;
+    padding: 6px;
+    font-size: 0.8rem;
+    border-radius: 6px;
+    text-align: center;
+    background-color: #ff4d4d;
+    border: none;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.delete-button:hover {
+    background-color: #e63939;
+}
+
+/* Кнопка виходу */
+.logout-button {
+    margin-top: 15px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+
+
+/* Анітація для розгортання */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Адаптивність */
+@media (max-width: 768px) {
+    .admin-container {
+        padding: 10px;
+    }
+
+    .add-vacancy-section,
+    .admin-card {
+        padding: 10px;
+    }
+
+    .vacancy-item {
+        padding: 6px;
+    }
+
+    .vacancy-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .vacancy-title {
+        font-size: 0.95rem;
+    }
+
+    .vacancy-company {
+        font-size: 0.8rem;
+    }
+
+    .applicant-item {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .action-buttons {
+        margin-left: auto;
+        gap: 4px;
+        padding-left: 8px;
+    }
+
+    .action-button {
+        width: 20px;
+        height: 20px;
+        font-size: 0.9rem;
+    }
+
+    .applicant-name {
+        font-size: 0.95rem;
+    }
+
+    .action-icon {
+        width: 14px;
+        height: 14px;
+    }
+
+    .modal-body p {
+        font-size: 0.85rem;
+    }
+}
