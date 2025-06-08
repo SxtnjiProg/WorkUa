@@ -14,7 +14,6 @@ import Error from "./pages/Error";
 const App = () => {
     return (
         <BrowserRouter basename="/WorkUa">
-            <App />
             <Routes>
                 <Route path="/" element={<VacancyListPage />} />
                 <Route path="/applied" element={<AppliedVacanciesPage />} />
