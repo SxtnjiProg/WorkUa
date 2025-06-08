@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/WorkUa/static/css/main.9b8be359.css",
-    "main.js": "/WorkUa/static/js/main.f453eb6b.js",
-    "index.html": "/WorkUa/index.html",
-    "main.9b8be359.css.map": "/WorkUa/static/css/main.9b8be359.css.map",
-    "main.f453eb6b.js.map": "/WorkUa/static/js/main.f453eb6b.js.map"
+    "main.css": "/SxtnjiProg/WorkUa/static/css/main.9b8be359.css",
+    "main.js": "/SxtnjiProg/WorkUa/static/js/main.f453eb6b.js",
+    "index.html": "/SxtnjiProg/WorkUa/index.html",
+    "main.9b8be359.css.map": "/SxtnjiProg/WorkUa/static/css/main.9b8be359.css.map",
+    "main.f453eb6b.js.map": "/SxtnjiProg/WorkUa/static/js/main.f453eb6b.js.map"
   },
   "entrypoints": [
     "static/css/main.9b8be359.css",
