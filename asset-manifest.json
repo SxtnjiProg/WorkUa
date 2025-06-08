@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/WorkUa/static/css/main.9b8be359.css",
+    "main.js": "/WorkUa/static/js/main.5dda448f.js",
+    "index.html": "/WorkUa/index.html",
+    "main.9b8be359.css.map": "/WorkUa/static/css/main.9b8be359.css.map",
+    "main.5dda448f.js.map": "/WorkUa/static/js/main.5dda448f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9b8be359.css",
+    "static/js/main.5dda448f.js"
+  ]
+}
