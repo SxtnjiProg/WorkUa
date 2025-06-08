@@ -1,0 +1,102 @@
+
+:root {
+    --bg-color: rgb(0 0 0 / 50%);
+    --card-bg: rgba(255, 255, 255, 0.8);
+    --text-color: #4b5563;
+    --gradient-start: #ff9100;
+    --gradient-end: #ff4d4d;
+    --button-bg: linear-gradient(to right, #ff9100, #ff4d4d);
+    --button-hover-bg: linear-gradient(to right, #d57902, #8f2a2a);
+    --shadow-color: rgba(139, 92, 246, 0.5);
+}
+
+[data-theme="dark"] {
+    --bg-color: #111827;
+    --card-bg: rgba(31, 41, 55, 0.8);
+    --text-color: #d1d5db;
+}
+
+/* Container */
+.error-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-color);
+    transition: background-color 0.3s ease;
+}
+
+/* Error Card */
+.error-card {
+    max-width: 400px;
+    width: 100%;
+    padding: 24px;
+    border-radius: 8px;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transform: translateY(0);
+    animation: slideIn 0.5s ease-out forwards;
+}
+
+/* Title */
+.error-title {
+    font-size: 36px;
+    font-weight: bold;
+    background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 16px;
+    animation: fadeIn 1s ease-in;
+}
+
+/* Message */
+.error-message {
+    font-size: 18px;
+    color: var(--text-color);
+    margin-bottom: 24px;
+    transition: color 0.3s ease;
+}
+
+/* Button */
+.error-button {
+    width: 100%;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    background: var(--button-bg);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.error-button:hover {
+    background: var(--button-hover-bg);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px var(--shadow-color);
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

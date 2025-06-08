@@ -39,7 +39,7 @@ const RegisterPage = () => {
         window.localStorage.setItem(LOCALSTORE_USERS, JSON.stringify(users));
         window.localStorage.setItem(LOCALSTORE_CURRENT_USER, JSON.stringify(newUser));
         setError("");
-        navigate(role === "admin" ? "/admin" : "/profile");
+        navigate(role === "admin" ? "/admin" : "/user");
     };
 
     return (

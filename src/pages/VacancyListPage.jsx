@@ -229,7 +229,8 @@ const VacancyListPage = () => {
     };
 
     const filteredVacancies = vacancies.filter((v) => {
-        const matchesSearch = v.name.toLowerCase().includes(searchTerm.toLowerCase());
+        const matchesSearch = v.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            v.company.toLowerCase().includes(searchTerm.toLowerCase());
         if (!matchesSearch) return false;
         if (v.hidden && role === "guest") return false;
         if (filter === "new") {
@@ -367,16 +368,22 @@ const VacancyListPage = () => {
                 <Row className="m-0 justify-content-center">
                     <Col md={6}>
                         {role === "admin" && <VacancyForm onAdd={handleAddVacancy} />}
-                        <VacancyList
-                            vacancies={filteredVacancies}
-                            onApply={handleToggleApply}
-                            onDelete={role === "admin" ? handleDelete : null}
-                            onHide={role === "guest" ? handleHide : null}
-                            role={role}
-                            showModal={showModal}
-                            setShowModal={setShowModal}
-                            dislikeImage="/images/dislike.png"
-                        />
+                        {filteredVacancies.length === 0 ? (
+                            <div className="no-results">
+                                УУпс... нічого не знайдено :(
+                            </div>
+                        ) : (
+                            <VacancyList
+                                vacancies={filteredVacancies}
+                                onApply={handleToggleApply}
+                                onDelete={role === "admin" ? handleDelete : null}
+                                onHide={role === "guest" ? handleHide : null}
+                                role={role}
+                                showModal={showModal}
+                                setShowModal={setShowModal}
+                                dislikeImage="/images/dislike.png"
+                            />
+                        )}
                     </Col>
                 </Row>
 
@@ -440,7 +447,7 @@ const VacancyListPage = () => {
                     </div>
                 </div>
                 <div className="footer-bottom">
-                    <p>&copy; 2025 WORK.ua. Всі права захищені.</p>
+                    <p>© 2025 WORK.ua. Всі права захищені.</p>
                 </div>
             </footer>
         </div>
