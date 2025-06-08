@@ -13,7 +13,7 @@ import Error from "./pages/Error";
 
 const App = () => {
     return (
-        <BrowserRouter>
+        <BrowserRouter basename="/WorkUa">
             <Routes>
                 <Route path="/" element={<VacancyListPage />} />
                 <Route path="/applied" element={<AppliedVacanciesPage />} />
